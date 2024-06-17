@@ -1,12 +1,14 @@
 import './CartCard.css';
+import { useCart } from '../context/CartContext';
 
-export const CartCard = ({item}) => {
+export const CartCard = ({product}) => {
+  const {removeFromCart} = useCart();
   return (
     <div className="cart-card">
-        <img src={item.image} alt="" />
-        <p className='name'>{item.name}</p>
-        <p className='price'>${item.price}</p>
-        <button>Remove</button>
+        <img src={product.image} alt="" />
+        <p className='name'>{product.name}</p>
+        <p className='price'>${product.price}</p>
+        <button onClick={() => removeFromCart(product)}>Remove</button>
     </div>
   )
 }
