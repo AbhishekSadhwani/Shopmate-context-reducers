@@ -19,7 +19,7 @@ export const Cart = ({title}) => {
     <main>
       <section>
         <div className="title">
-          <p>Cart Items: {cartList.length}/ ${total}</p>
+          <p>Cart Items: {cartList.length}/ Cart Total: ${total}</p>
         </div>
         <div className="cart-cards">
           {cartList && cartList.map(product => (

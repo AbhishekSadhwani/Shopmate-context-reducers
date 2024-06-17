@@ -20,6 +20,9 @@
         case "REMOVE_FROM_CART":
             return {...state, cartList: payload.products};
 
+        case "TOTAL_CART_PRICE":
+            return {...state, total: payload.total}
+
         default:
             throw new Error("No case found");
     }

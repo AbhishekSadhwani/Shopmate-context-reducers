@@ -19,6 +19,7 @@ export const ContextProvider = ({children}) => {
 
     const addToCart = (product) => {
         const updatedCartList = state.cartList.concat(product);
+        totalCartPrice(updatedCartList);
 
         dispatch({
             type:"ADD_TO_CART",
@@ -30,6 +31,7 @@ export const ContextProvider = ({children}) => {
 
     const removeFromCart = (product) => {
         const updatedCartList = state.cartList.filter(item => item.id !== product.id);
+        totalCartPrice(updatedCartList);
 
         dispatch({
             type:"REMOVE_FROM_CART",
@@ -39,22 +41,20 @@ export const ContextProvider = ({children}) => {
         })
     };
 
-    // const totalCartPrice = () => {
-    //     const total = 0;
-    //     total = state.cartList.forEach(product => {
-    //         total += product.price; 
-    //     });
+    const totalCartPrice = (productsList) => {
+        let total = 0;
+        productsList.forEach(product => {
+            total += product.price; 
+        });
 
-    //     dispatch({
-    //         type: "TOTAL_CART_PRICE",
-    //         payload: {
-    //             total: total
-    //         }
-    //     })
+        dispatch({
+            type: "TOTAL_CART_PRICE",
+            payload: {
+                total: total
+            }
+        })
 
-    // }
-
-
+    }
 
 
     /* 
@@ -66,7 +66,7 @@ export const ContextProvider = ({children}) => {
         cartList: state.cartList,
         addToCart,
         removeFromCart,
-        // totalCartPrice
+        totalCartPrice
     };
     return(
 
