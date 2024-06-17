@@ -8,7 +8,7 @@ export const CartCard = ({product}) => {
         <img src={product.image} alt="" />
         <p className='name'>{product.name}</p>
         <p className='price'>${product.price}</p>
-        <button onClick={() => removeFromCart(product)}>Remove</button>
+        <button className='remove-btn' onClick={() => removeFromCart(product)}>Remove</button>
     </div>
   )
 }
