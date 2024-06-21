@@ -22,10 +22,10 @@
     margin-right: 10px;
 }
 
-.remove-btn{
+.cart-card button{
     background-color: #AC0D14;
     color: #ffffff;
-    padding: 7px 10px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;

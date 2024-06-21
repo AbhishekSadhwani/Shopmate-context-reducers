@@ -7,7 +7,10 @@ export const ProductCard = ({product}) => {
   const { addToCart,cartList,removeFromCart } = useCart();
   const [ inCart, setInCart] = useState(false);
 
-
+  /* using useEffect to keep on checking if the product is added to cart or not
+   if added then we will set inCart to true otherwise false, since cartList is passed as 
+   dependency useEffect will run every time there is a change in cartList
+   */
   useEffect(() => {
     const prodcutIncart = cartList.find(item => item.id === product.id );
     
@@ -17,7 +20,7 @@ export const ProductCard = ({product}) => {
       setInCart(false);
     }
 
-  },[cartList])
+  },[cartList, product.id])
 
   return (
     <div className="card">
